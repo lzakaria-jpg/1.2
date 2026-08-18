@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# SPA fallback for the frontend routes. Netlify always serves /.netlify/functions/*
+# directly regardless of this catch-all, so it never intercepts the API proxy.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
